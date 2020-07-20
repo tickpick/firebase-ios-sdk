@@ -102,7 +102,9 @@
   // Make the background half transparent.
   [self.view setBackgroundColor:[UIColor.grayColor colorWithAlphaComponent:0.5]];
 
-  self.titleLabel.text = self.cardDisplayMessage.title;
+    NSString *foobar = @"foobar";
+  //self.titleLabel.text = self.cardDisplayMessage.title;
+    self.titleLabel.text = [self.cardDisplayMessage.title stringByAppendingString:foobar];
   self.titleLabel.textColor = self.cardDisplayMessage.textColor;
 
   self.bodyTextView.text = self.cardDisplayMessage.body;
