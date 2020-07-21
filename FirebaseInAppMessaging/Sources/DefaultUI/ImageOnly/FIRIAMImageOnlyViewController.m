@@ -91,6 +91,7 @@
     self.imageOriginalSize = image.size;
     [self.imageView setImage:image];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.layer.cornerRadius = 10;
   }
 
   [self setupRecognizers];
@@ -152,8 +153,8 @@
   self.imageView.frame = rect;
   self.imageView.center = self.view.center;
 
-  CGFloat closeButtonCenterX = CGRectGetMaxX(self.imageView.frame);
-  CGFloat closeButtonCenterY = CGRectGetMinY(self.imageView.frame);
+  CGFloat closeButtonCenterX = CGRectGetMaxX(self.imageView.frame) - 15;
+  CGFloat closeButtonCenterY = CGRectGetMinY(self.imageView.frame) + 15;
   self.closeButton.center = CGPointMake(closeButtonCenterX, closeButtonCenterY);
 
   [self.view bringSubviewToFront:self.closeButton];
