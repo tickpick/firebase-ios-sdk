@@ -94,7 +94,7 @@
   [super viewDidLoad];
 
   self.cardView.backgroundColor = self.cardDisplayMessage.displayBackgroundColor;
-  self.cardView.layer.cornerRadius = 4;
+  self.cardView.layer.cornerRadius = 10;
 
   self.bodyTextView.contentInset = UIEdgeInsetsZero;
   self.bodyTextView.textContainer.lineFragmentPadding = 0;
@@ -102,20 +102,29 @@
   // Make the background half transparent.
   [self.view setBackgroundColor:[UIColor.grayColor colorWithAlphaComponent:0.5]];
 
-    NSString *foobar = @"foobar";
-  //self.titleLabel.text = self.cardDisplayMessage.title;
-    self.titleLabel.text = [self.cardDisplayMessage.title stringByAppendingString:foobar];
-  self.titleLabel.textColor = self.cardDisplayMessage.textColor;
+  self.titleLabel.text = self.cardDisplayMessage.title;
+    self.titleLabel.textColor = UIColor.blackColor;
+    self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
 
   self.bodyTextView.text = self.cardDisplayMessage.body;
-  self.bodyTextView.textColor = self.cardDisplayMessage.textColor;
+  //self.bodyTextView.textColor = self.cardDisplayMessage.textColor;
+    self.bodyTextView.textColor = [UIColor colorWithRed:144.0/255.0 green:144.0/255.0 blue:144.0/255.0 alpha:1];
+    self.bodyTextView.font = [UIFont fontWithName:@"Helvetica" size:15];
+    [self.bodyTextView setTextAlignment:NSTextAlignmentCenter];
 
   [self.primaryActionButton setTitle:self.cardDisplayMessage.primaryActionButton.buttonText
                             forState:UIControlStateNormal];
-  [self.primaryActionButton
-      setTitleColor:self.cardDisplayMessage.primaryActionButton.buttonTextColor
-           forState:UIControlStateNormal];
+    [self.primaryActionButton setBackgroundColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1]];
+    self.primaryActionButton.layer.cornerRadius = 18;
 
+  [self.primaryActionButton
+   setTitleColor:UIColor.whiteColor
+           forState:UIControlStateNormal];
+    [self.primaryActionButton.widthAnchor constraintEqualToAnchor:self.titleLabel.widthAnchor multiplier:1].active = true;
+    [self.primaryActionButton.centerXAnchor constraintEqualToAnchor:self.titleLabel.centerXAnchor].active = true;
+
+    /*
   if (self.cardDisplayMessage.secondaryActionButton) {
     self.secondaryActionButton.hidden = NO;
     [self.secondaryActionButton setTitle:self.cardDisplayMessage.secondaryActionButton.buttonText
@@ -124,11 +133,20 @@
         setTitleColor:self.cardDisplayMessage.secondaryActionButton.buttonTextColor
              forState:UIControlStateNormal];
   }
+     */
 }
 
 - (void)viewDidLayoutSubviews {
   [super viewDidLayoutSubviews];
 
+    //set rounded top corners
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.imageView.bounds byRoundingCorners:
+                              (UIRectCornerTopLeft | UIRectCornerTopRight) cornerRadii:CGSizeMake(10.0, 10.0)];
+
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.view.bounds;
+    maskLayer.path  = maskPath.CGPath;
+    self.imageView.layer.mask = maskLayer;
   // The landscape image is optional and only displayed if:
   // 1. Landscape image exists.
   // 2. The iOS device is in "landscape" mode (regular width or compact height).

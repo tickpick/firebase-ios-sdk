@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -483,7 +484,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="message-card-view"/>
                                 <constraints>
-                                    <constraint firstItem="Tmr-ar-k7h" firstAttribute="top" secondItem="oVh-9O-yfC" secondAttribute="bottom" constant="24" id="1pM-Jd-Nka"/>
+                                    <constraint firstItem="Tmr-ar-k7h" firstAttribute="top" secondItem="oVh-9O-yfC" secondAttribute="bottom" constant="5" id="1pM-Jd-Nka"/>
                                     <constraint firstItem="oVh-9O-yfC" firstAttribute="top" secondItem="Aft-rr-icV" secondAttribute="top" constant="24" identifier="Title label top padding - landscape" id="4aZ-wP-20V" userLabel="Title label top padding - landscape"/>
                                     <constraint firstItem="Tmr-ar-k7h" firstAttribute="leading" secondItem="Aft-rr-icV" secondAttribute="leading" constant="24" id="6oY-Eb-2Mh"/>
                                     <constraint firstItem="oVh-9O-yfC" firstAttribute="leading" secondItem="gB0-8W-G9z" secondAttribute="trailing" constant="24" identifier="Title label spacing after image view - landscape" id="7IV-jj-DjU" userLabel="Title label spacing after image view - landscape"/>
