@@ -104,35 +104,53 @@
 
   self.titleLabel.text = self.cardDisplayMessage.title;
     self.titleLabel.textColor = UIColor.blackColor;
-    self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20];
+//    self.titleLabel.font = [self.titleLabel.font fontWithSize:20];
+//    NSLog(@"font names %@", [UIFont fontNamesForFamilyName:self.titleLabel.font.fontName]);
+//    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
 
   self.bodyTextView.text = self.cardDisplayMessage.body;
   //self.bodyTextView.textColor = self.cardDisplayMessage.textColor;
     self.bodyTextView.textColor = [UIColor colorWithRed:144.0/255.0 green:144.0/255.0 blue:144.0/255.0 alpha:1];
-    self.bodyTextView.font = [UIFont fontWithName:@"Helvetica" size:15];
+    self.bodyTextView.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+//    self.bodyTextView.font = [self.bodyTextView.font fontWithSize:15];
+//    [self.bodyTextView setTextAlignment:NSTextAlignmentCenter];
 
   [self.primaryActionButton setTitle:self.cardDisplayMessage.primaryActionButton.buttonText
                             forState:UIControlStateNormal];
+    [self.primaryActionButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
+//    self.primaryActionButton.titleLabel.font = [self.primaryActionButton.titleLabel.font fontWithSize:15];
     [self.primaryActionButton setBackgroundColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1]];
-    self.primaryActionButton.layer.cornerRadius = 18;
+    self.primaryActionButton.layer.cornerRadius = 20;
+    [self.primaryActionButton.heightAnchor constraintEqualToConstant:40].active = true;
 
   [self.primaryActionButton
    setTitleColor:UIColor.whiteColor
            forState:UIControlStateNormal];
+//    [self.primaryActionButton.widthAnchor constraintEqualToAnchor:self.titleLabel.widthAnchor multiplier:1].active = true;
+//    [self.primaryActionButton.centerXAnchor constraintEqualToAnchor:self.titleLabel.centerXAnchor].active = true;
+
 
   if (self.cardDisplayMessage.secondaryActionButton) {
     self.secondaryActionButton.hidden = NO;
 
+//      [self.primaryActionButton.widthAnchor constraintEqualToAnchor:self.bodyTextView.widthAnchor multiplier:1].active = true;
       [self.primaryActionButton.widthAnchor constraintEqualToConstant:150].active = true;
 
-      [self.secondaryActionButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
+//      [self.secondaryActionButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
+      self.secondaryActionButton.titleLabel.font = [self.secondaryActionButton.titleLabel.font fontWithSize:14];
     [self.secondaryActionButton setTitle:self.cardDisplayMessage.secondaryActionButton.buttonText
                                 forState:UIControlStateNormal];
     [self.secondaryActionButton
         setTitleColor:[UIColor colorWithRed:144.0/255.0 green:144.0/255.0 blue:144.0/255.0 alpha:1]
              forState:UIControlStateNormal];
+      NSLog(@"title font %@", self.titleLabel.font);
+      NSLog(@"body font %@", self.bodyTextView.font);
+      NSLog(@"primary font %@", self.primaryActionButton.titleLabel.font);
+      NSLog(@"secondary font %@", self.secondaryActionButton.titleLabel.font);
       [self.secondaryActionButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
       [self.secondaryActionButton.widthAnchor constraintEqualToConstant:120].active = true;
+//      [self.secondaryActionButton setBackgroundColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:0.0/255.0 alpha:1]];
   } else {
       [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
       [self.bodyTextView setTextAlignment:NSTextAlignmentCenter];
