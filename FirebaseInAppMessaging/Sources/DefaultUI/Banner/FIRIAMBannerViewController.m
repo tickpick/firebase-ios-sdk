@@ -42,8 +42,8 @@
 @end
 
 // The image display area dimension in points
-static const CGFloat kBannerViewImageWidth = 60;
-static const CGFloat kBannerViewImageHeight = 60;
+static const CGFloat kBannerViewImageWidth = 80;
+static const CGFloat kBannerViewImageHeight = 80;
 
 static const NSTimeInterval kBannerViewAnimationDuration = 0.3;  // in seconds
 
@@ -118,7 +118,11 @@ static const CGFloat kSwipeUpThreshold = -10.0f;
   [self setupRecognizers];
 
   self.titleLabel.text = self.bannerDisplayMessage.title;
-  self.bodyLabel.text = self.bannerDisplayMessage.bodyText;
+    self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
+
+    self.bodyLabel.text = self.bannerDisplayMessage.bodyText;
+    self.bodyLabel.textColor = [UIColor colorWithRed:144.0/255.0 green:144.0/255.0 blue:144.0/255.0 alpha:1];
+    self.bodyLabel.font = [UIFont fontWithName:@"Helvetica" size:13];
 
   if (self.bannerDisplayMessage.imageData) {
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -147,13 +151,14 @@ static const CGFloat kSwipeUpThreshold = -10.0f;
 
   // Set some rendering effects based on settings.
   self.view.backgroundColor = self.bannerDisplayMessage.displayBackgroundColor;
-  self.titleLabel.textColor = self.bannerDisplayMessage.textColor;
-  self.bodyLabel.textColor = self.bannerDisplayMessage.textColor;
+  //self.titleLabel.textColor = self.bannerDisplayMessage.textColor;
+  //self.bodyLabel.textColor = self.bannerDisplayMessage.textColor;
 
   self.view.layer.masksToBounds = NO;
   self.view.layer.shadowOffset = CGSizeMake(2, 1);
   self.view.layer.shadowRadius = 2;
   self.view.layer.shadowOpacity = 0.4;
+  self.view.layer.cornerRadius = 10;
 
   // Calculate status bar height.
   CGFloat statusBarHeight = 0;
@@ -248,10 +253,10 @@ static const CGFloat kSwipeUpThreshold = -10.0f;
     bannerViewHeight = CGRectGetMaxY(self.bodyLabel.frame);
   }
 
-  bannerViewHeight += 5;  // Add some padding margin on the bottom of the view
+  bannerViewHeight += 17;  // Add some padding margin on the bottom of the view
 
   CGFloat appWindowWidth = [self.view.window bounds].size.width;
-  CGFloat bannerViewWidth = appWindowWidth;
+  CGFloat bannerViewWidth = appWindowWidth - 20;
 
   if (bannerViewWidth > kBannerViewMaxWidth) {
     bannerViewWidth = kBannerViewMaxWidth;
@@ -259,7 +264,7 @@ static const CGFloat kSwipeUpThreshold = -10.0f;
   }
 
   CGRect viewRect =
-      CGRectMake((appWindowWidth - bannerViewWidth) / 2, 0, bannerViewWidth, bannerViewHeight);
+      CGRectMake((appWindowWidth - bannerViewWidth) / 2, 25, bannerViewWidth, bannerViewHeight);
   self.view.frame = viewRect;
 
   if (self.hidingForAnimation) {
