@@ -1,3 +1,20 @@
+# v4.5.0
+- [fixed] Fixed a compiler warning and removed unused networking code (#6210).
+- [fixed] Fixed a crash that occurred rarely when trying to restart a URL session task without a valid request (#5984).
+- [added] Introduced watchOS support (#6262).
+
+# v4.3.1
+- [fixed] Fixed a segmentation fault that could occur when writing crash contexts to disk (#6048).
+
+# v4.3.0
+
+- [changed] Add dispatch_once for opening sdk log file. (#5904)
+- [changed] Functionally neutral updated import references for dependencies. (#5902)
+
+# v4.2.0
+
+- [changed] Removed an unnecessary linker rule for embedding the Info.plist. (#5804)
+
 # v4.1.1
 
 - [fixed] Fixed a crash that could occur if certain plist fields necessary to create Crashlytics records were missing at runtime. Also added some diagnostic logging to make the issue cause more explicit (#5565).

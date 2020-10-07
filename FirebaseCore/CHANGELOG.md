@@ -1,3 +1,23 @@
+# Firebase 6.31.1
+- [fixed] Sporadic missing FirebaseApp symbol build issue introduced in Firebase 6.28.0. (#6341)
+
+# Firebase 6.31.0 FirebaseCore 6.10.1 -- M78
+- [added] Beta release of Swift Package Manager. Details
+  [here](https://github.com/firebase/firebase-ios-sdk/blob/master/SwiftPackageManager.md). (#3136)
+- [changed] Firebase's dependencies on nanopb are updated from version 0.3.9.5 to
+  version 0.3.9.6 (1.30906.0 in CocoaPods).
+
+# v6.10.0 -- M77
+- [changed] Functionally neutral public header refactor in preparation for Swift Package
+  Manager support. Applies to FirebaseCore, FirebaseABTesting, FirebaseAuth, FirebaseCrashlytics,
+  FirebaseDatabase, FirebaseFirestore, FirebaseFunctions, FirebaseInstallations,
+  FirebaseRemoteConfig, FirebaseStorage, and GoogleDataTransport.
+
+# v6.9.0 -- M75
+- [changed] Added thread safety to `[FIROptions defaultOptions]` method. (#5915)
+- [changed] Updated GoogleUtilities and GoogleDataTransport imports. The GoogleDataTransportCCTSupport
+  pod/framework should no longer be linked along with Firebase. (#5824)
+
 # v6.8.0 -- M73
 - [changed] Functionally neutral refactor to simplify FirebaseCore's header usage and replace
   Interop pods with headers only. This change is the reason most of the Firebase pods have a minor

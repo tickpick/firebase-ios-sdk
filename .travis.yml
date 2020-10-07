@@ -124,7 +124,7 @@ jobs:
       env:
         - PROJECT=Crashlytics METHOD=pod-lib-lint
       script:
-        - travis_retry ./scripts/if_changed.sh ./scripts/pod_lib_lint.rb FirebaseCrashlytics.podspec
+        - travis_retry ./scripts/if_changed.sh ./scripts/pod_lib_lint.rb FirebaseCrashlytics.podspec --platforms=ios
 
     - stage: test
       env:
@@ -231,7 +231,6 @@ jobs:
         - PROJECT=GoogleDataTransport METHOD=pod-lib-lint
       script:
         - travis_retry ./scripts/if_changed.sh ./scripts/pod_lib_lint.rb GoogleDataTransport.podspec --platforms=ios
-        - travis_retry ./scripts/if_changed.sh ./scripts/pod_lib_lint.rb GoogleDataTransportCCTSupport.podspec --platforms=ios
 
     # Validate Cocoapods configurations
     # This may take long time, so we would like to run it only once all other tests pass

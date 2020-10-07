@@ -154,7 +154,9 @@ struct ZipBuilder {
     }
 
     let podsToBuild = LaunchArgs.shared.buildDependencies ? installedPods :
-      installedPods.filter { podsToInstall.map { $0.name }.contains($0.key) }
+      installedPods.filter {
+        podsToInstall.map { $0.name.components(separatedBy: "/").first }.contains($0.key)
+      }
 
     // Generate the frameworks. Each key is the pod name and the URLs are all frameworks to be
     // copied in each product's directory.
@@ -372,8 +374,7 @@ struct ZipBuilder {
   func copyFrameworks(fromPods installedPods: [String],
                       toDirectory dir: URL,
                       frameworkLocations: [String: [URL]],
-                      podsToIgnore: [String] = [],
-                      foldersToIgnore: [String] = []) throws -> [String] {
+                      podsToIgnore: [String] = []) throws -> [String] {
     let fileManager = FileManager.default
     if !fileManager.directoryExists(at: dir) {
       try fileManager.createDirectory(at: dir, withIntermediateDirectories: false, attributes: nil)
@@ -403,10 +404,6 @@ struct ZipBuilder {
       // Copy each of the frameworks over, unless it's explicitly ignored.
       for xcframework in xcframeworks {
         let xcframeworkName = xcframework.lastPathComponent
-        if foldersToIgnore.contains(xcframeworkName) {
-          continue
-        }
-
         let destination = dir.appendingPathComponent(xcframeworkName)
         try fileManager.copyItem(at: xcframework, to: destination)
         copiedFrameworkNames
@@ -551,9 +548,7 @@ struct ZipBuilder {
     let namedFrameworks = try copyFrameworks(fromPods: podsToCopy,
                                              toDirectory: productDir,
                                              frameworkLocations: builtFrameworks,
-                                             podsToIgnore: podsToIgnore,
-                                             foldersToIgnore: FirebasePods
-                                               .duplicateFrameworksToRemove(pod: podName))
+                                             podsToIgnore: podsToIgnore)
 
     let copiedFrameworks = namedFrameworks.filter {
       // Skip frameworks that aren't contained in the "podsToIgnore" array and the Firebase pod.
