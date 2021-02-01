@@ -107,23 +107,25 @@
 
   self.titleLabel.text = self.cardDisplayMessage.title;
   self.titleLabel.textColor = UIColor.blackColor;
-  self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+  self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20];
 
   self.bodyTextView.text = self.cardDisplayMessage.body;
   self.bodyTextView.textColor = [UIColor colorWithRed:144.0/255.0 green:144.0/255.0 blue:144.0/255.0 alpha:1];
-  self.bodyTextView.font = [UIFont fontWithName:@"Helvetica" size:15];
+  self.bodyTextView.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
 
   [self.primaryActionButton setTitle:self.cardDisplayMessage.primaryActionButton.buttonText
                             forState:UIControlStateNormal];
+  [self.primaryActionButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
   [self.primaryActionButton setBackgroundColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1]];
-  self.primaryActionButton.layer.cornerRadius = 18;
+  self.primaryActionButton.layer.cornerRadius = 20;
+  [self.primaryActionButton.heightAnchor constraintEqualToConstant:40].active = true;
 
   [self.primaryActionButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
 
   if (self.cardDisplayMessage.secondaryActionButton) {
     self.secondaryActionButton.hidden = NO;
     [self.primaryActionButton.widthAnchor constraintEqualToConstant:150].active = true;
-    [self.secondaryActionButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
+    self.secondaryActionButton.titleLabel.font = [self.secondaryActionButton.titleLabel.font fontWithSize:14];
 
     [self.secondaryActionButton setTitle:self.cardDisplayMessage.secondaryActionButton.buttonText
                                 forState:UIControlStateNormal];
