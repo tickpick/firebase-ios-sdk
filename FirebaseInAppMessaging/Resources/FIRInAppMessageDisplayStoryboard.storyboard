@@ -191,6 +191,18 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akA-AE-VPc">
+                                        <rect key="frame" x="310" y="4" width="40" height="40"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="close-button"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" identifier="Close button width = 40" id="Dwi-In-x47"/>
+                                            <constraint firstAttribute="height" constant="40" identifier="Close button height = 40" id="tIe-pH-jRO"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="close-with-transparency.png"/>
+                                        <connections>
+                                            <action selector="closeButtonClicked:" destination="x01-lq-3r6" eventType="touchUpInside" id="L0w-8X-Lcz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="message-card-view">
@@ -199,7 +211,9 @@
                                 <constraints>
                                     <constraint firstItem="c7x-Lf-M58" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jER-Re-ODh" secondAttribute="top" constant="24" identifier="Image View.top ≥ top + 24" id="0Fp-k2-48a"/>
                                     <constraint firstItem="24j-6H-N9j" firstAttribute="trailing" secondItem="Edi-DJ-cR8" secondAttribute="trailing" identifier="Body Text View.trailing = Title Label.trailing" id="0aC-BE-yfJ"/>
+                                    <constraint firstItem="akA-AE-VPc" firstAttribute="centerX" secondItem="jER-Re-ODh" secondAttribute="trailing" constant="-20" id="6Hu-nA-Sg3"/>
                                     <constraint firstItem="Edi-DJ-cR8" firstAttribute="leading" secondItem="c7x-Lf-M58" secondAttribute="trailing" constant="24" identifier="Title Label.leading = Image View.trailing + 24" id="7vK-9V-j5H"/>
+                                    <constraint firstItem="akA-AE-VPc" firstAttribute="top" secondItem="jER-Re-ODh" secondAttribute="top" constant="4" id="8U5-u5-yyh"/>
                                     <constraint firstAttribute="height" priority="100" constant="650" identifier="Fixed Message Card Height Constraint" id="8Yx-fI-jXG"/>
                                     <constraint firstAttribute="height" constant="279" placeholder="YES" identifier="card height to make interface builder happy" id="8qu-C8-A9u" userLabel="card height to make interface builder happy"/>
                                     <constraint firstItem="Edi-DJ-cR8" firstAttribute="top" secondItem="jER-Re-ODh" secondAttribute="top" constant="20" identifier="Title Top To Card View Top" id="9La-QV-ftg" userLabel="Title Top To Card View Top"/>
@@ -208,6 +222,7 @@
                                     <constraint firstItem="VmW-ue-K1q" firstAttribute="centerX" secondItem="jER-Re-ODh" secondAttribute="centerX" identifier="Action Button.centerX = centerX" id="CSN-TG-E9H"/>
                                     <constraint firstItem="Edi-DJ-cR8" firstAttribute="top" secondItem="jER-Re-ODh" secondAttribute="top" constant="24" identifier="Title Label.top = top + 24" id="FTB-yV-c00"/>
                                     <constraint firstItem="c7x-Lf-M58" firstAttribute="centerY" secondItem="jER-Re-ODh" secondAttribute="centerY" identifier="Image View.centerY = centerY" id="Hm8-0s-RTs"/>
+                                    <constraint firstItem="akA-AE-VPc" firstAttribute="centerY" secondItem="jER-Re-ODh" secondAttribute="top" constant="20" id="Ilu-gr-ggK"/>
                                     <constraint firstItem="Edi-DJ-cR8" firstAttribute="leading" secondItem="jER-Re-ODh" secondAttribute="leading" constant="24" identifier="Title Label.leading = leading + 24" id="JJo-tI-mvn"/>
                                     <constraint firstItem="c7x-Lf-M58" firstAttribute="trailing" secondItem="Edi-DJ-cR8" secondAttribute="trailing" identifier="Image View.trailing = Title Label.trailing" id="JUy-lx-oR6"/>
                                     <constraint firstItem="c7x-Lf-M58" firstAttribute="top" secondItem="Edi-DJ-cR8" secondAttribute="bottom" constant="24" identifier="Image Top To Title Bottom In Portrait Mode" id="Kec-yq-1Pz"/>
@@ -222,6 +237,7 @@
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="c7x-Lf-M58" secondAttribute="bottom" constant="24" identifier="bottom ≥ Image View.bottom + 24" id="ivB-jb-LVl"/>
                                     <constraint firstItem="c7x-Lf-M58" firstAttribute="top" secondItem="jER-Re-ODh" secondAttribute="top" constant="20" identifier="Image Top To Card Top In Landscape Mode" id="pyI-1U-ujR" userLabel="Image Top To Card Top In Landscape Mode"/>
                                     <constraint firstItem="24j-6H-N9j" firstAttribute="top" secondItem="Edi-DJ-cR8" secondAttribute="bottom" constant="24" identifier="Body Top To Title Bottom In Land Scape Mode" id="qgb-13-uT4"/>
+                                    <constraint firstAttribute="trailing" secondItem="akA-AE-VPc" secondAttribute="trailing" constant="4" id="wQe-Am-KxN"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VmW-ue-K1q" secondAttribute="bottom" priority="900" constant="20" identifier="bottom ≥ Action Button.bottom + 20 @900" id="xXr-od-zOM"/>
                                     <constraint firstItem="c7x-Lf-M58" firstAttribute="leading" secondItem="jER-Re-ODh" secondAttribute="leading" constant="24" identifier="Image View.leading = leading + 24" id="ysk-iC-Hz4"/>
                                 </constraints>
