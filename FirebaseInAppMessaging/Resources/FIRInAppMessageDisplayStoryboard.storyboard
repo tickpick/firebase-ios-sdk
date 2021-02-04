@@ -191,18 +191,6 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akA-AE-VPc">
-                                        <rect key="frame" x="310" y="4" width="40" height="40"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="close-button"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" identifier="Close button width = 40" id="Dwi-In-x47"/>
-                                            <constraint firstAttribute="height" constant="40" identifier="Close button height = 40" id="tIe-pH-jRO"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="close-with-transparency.png"/>
-                                        <connections>
-                                            <action selector="closeButtonClicked:" destination="x01-lq-3r6" eventType="touchUpInside" id="L0w-8X-Lcz"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="message-card-view">
