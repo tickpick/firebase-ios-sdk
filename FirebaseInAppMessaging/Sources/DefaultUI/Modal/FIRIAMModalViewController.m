@@ -119,7 +119,7 @@ static CGFloat LandScapePaddingBetweenImageAndTextColumn = 24;
 
   // make the background half transparent
   [self.view setBackgroundColor:[UIColor.grayColor colorWithAlphaComponent:0.5]];
-  self.messageCardView.layer.cornerRadius = 10;
+  self.messageCardView.layer.cornerRadius = 4;
 
   // populating values for display elements
 
@@ -134,20 +134,17 @@ static CGFloat LandScapePaddingBetweenImageAndTextColumn = 24;
 
   self.messageCardView.backgroundColor = self.modalDisplayMessage.displayBackgroundColor;
 
-  self.titleLabel.textColor = UIColor.blackColor;
-  self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
-  self.bodyTextView.textColor = [UIColor colorWithRed:144.0/255.0 green:144.0/255.0 blue:144.0/255.0 alpha:1];
-  self.bodyTextView.font = [UIFont fontWithName:@"Helvetica" size:15];
+  self.titleLabel.textColor = self.modalDisplayMessage.textColor;
+  self.bodyTextView.textColor = self.modalDisplayMessage.textColor;
   self.bodyTextView.selectable = NO;
 
   if (self.modalDisplayMessage.actionButton.buttonText.length != 0) {
     [self.actionButton setTitle:self.modalDisplayMessage.actionButton.buttonText
                        forState:UIControlStateNormal];
-    [self.actionButton setBackgroundColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1]];
-    self.actionButton.layer.cornerRadius = 18;
+    self.actionButton.backgroundColor = self.modalDisplayMessage.actionButton.buttonBackgroundColor;
     [self.actionButton setTitleColor:self.modalDisplayMessage.actionButton.buttonTextColor
                             forState:UIControlStateNormal];
-    [self.actionButton.widthAnchor constraintEqualToAnchor:self.bodyTextView.widthAnchor multiplier:1].active = true;
+    self.actionButton.layer.cornerRadius = 4;
 
     if (self.modalDisplayMessage.bodyText.length == 0) {
       self.buttonTopToBodyBottomConstraint.constant = 0;
