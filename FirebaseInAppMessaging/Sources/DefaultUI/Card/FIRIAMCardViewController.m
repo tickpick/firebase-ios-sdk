@@ -116,7 +116,7 @@
   [self.primaryActionButton setTitle:self.cardDisplayMessage.primaryActionButton.buttonText
                             forState:UIControlStateNormal];
   [self.primaryActionButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
-  [self.primaryActionButton setBackgroundColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1]];
+  [self.primaryActionButton setBackgroundColor:[UIColor colorWithRed:88.0/255.0 green:96.0/255.0 blue:247.0/255.0 alpha:1]];
   self.primaryActionButton.layer.cornerRadius = 20;
   [self.primaryActionButton.heightAnchor constraintEqualToConstant:40].active = true;
 
